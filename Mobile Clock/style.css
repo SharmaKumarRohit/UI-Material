@@ -1,0 +1,153 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 35rem;
+    height: 62.5rem;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    padding: 0 3rem;
+    background-image: url('./img3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 1px 1px 20px rgba(22, 22, 22, 0.413);
+}
+
+.top {
+    margin-top: 9.5rem;
+}
+
+.top__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 4.5rem;
+    background-color: #f1f1f7;
+    border-radius: 10rem;
+    opacity: .8;
+    padding: 0 2rem;
+    box-shadow: 2px 2px 10px #aaa;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 99;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) .5s;
+}
+
+.top__inner:hover {
+    color: #f1f1f7;
+}
+
+.top__inner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    z-index: -2;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) .5s;
+}
+
+.top__inner:hover::after {
+    width: 100%;
+    color: #f1f1f7;
+    background-color: #161616;
+}
+
+.datetime {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #f1f1f7;
+    margin-top: 3.5rem;
+}
+
+.tleft {
+    font-size: 2rem;
+}
+
+.tright {
+    display: flex;
+    font-size: 2rem;
+}
+
+.tright>i {
+    margin-left: 1.5rem;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    opacity: .8;
+}
+
+.bInner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    width: 4rem;
+    height: 4rem;
+    background-color: #f1f1f7;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 99;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) .5s;
+}
+
+.bInner:hover {
+    color: #f1f1f7;
+}
+
+.bInner::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    z-index: -2;
+    background-color: #161616;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) .5s;
+}
+
+.bInner:hover::after {
+    height: 100%;
+    background-color: #161616;
+}
+
+.datetime .date span {
+    font-size: 1.5rem;
+}
+
+.datetime .time span {
+    font-size: 5rem;
+}
