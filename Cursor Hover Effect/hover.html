@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Effect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        #main {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #fff0f5;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            cursor: url('./mouse-cursor.png'), auto;
+            overflow: hidden;
+        }
+
+        .elem {
+            height: 50vh;
+            width: 25vw;
+            /* background-color: red; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .elem img {
+            display: block;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            position: absolute;
+            scale: 0;
+            opacity: 0;
+            transition: all linear 0.2s;
+            object-fit: cover;
+            object-position: center;
+            transition: all linear 0.2s;
+            z-index: 1;
+        }
+
+        .elem h1 {
+            font-size: 7rem;
+            font-weight: 900;
+            color: #fff;
+            -webkit-text-stroke-color: #121212;
+            -webkit-text-stroke-width: 2px;
+            z-index: 2;
+        }
+
+        .elem h1:hover {
+            color: #121212;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 350px;
+            height: 200px;
+            transform: translate(-50%, -50%);
+            background-color: rgba(18, 18, 18, 0);
+            z-index: 3;
+            cursor: pointer;
+        }
+
+        #cursor {
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            background-color: #121212;
+            position: absolute;
+            z-index: 99;
+            top: 0;
+            left: 0;
+            transition: all linear 0.1s;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="cursor"></div>
+        <div class="elem" id="elem1">
+            <h1>ROHIT</h1>
+            <img src="./hoverImage/img1.gif" alt="Hover Image">
+            <div id="overlay1" class="overlay"></div>
+        </div>
+
+        <div class="elem" id="elem2">
+            <h1>KUMAR</h1>
+            <img src="./hoverImage/img2.gif" alt="Hover Image">
+            <div id="overlay2" class="overlay"></div>
+        </div>
+
+        <div class="elem" id="elem3">
+            <h1>SHARMA</h1>
+            <img src="./hoverImage/img3.gif" alt="Hover Image">
+            <div id="overlay3" class="overlay"></div>
+        </div>
+    </div>
+
+    <script>
+        var cursor = document.querySelector("#cursor");
+        var main = document.querySelector("#main");
+
+        main.addEventListener("mousemove", function(dets) {
+            cursor.style.left = dets.x + "px";
+            cursor.style.top = dets.y + "px";
+        })
+
+        document.querySelector("#overlay1").addEventListener("mousemove", function(dets) {
+            document.querySelector("#elem1 img").style.scale = 1;
+            document.querySelector("#elem1 img").style.opacity = 1;
+            cursor.style.scale = 0;
+            document.querySelector("#elem1 img").style.left = (dets.x - 200) + "px";
+            document.querySelector("#elem1 img").style.top = (dets.y - 300) + "px";
+        })
+
+        document.querySelector("#overlay1").addEventListener("mouseleave", function(dets) {
+            document.querySelector("#elem1 img").style.scale = 0;
+            document.querySelector("#elem1 img").style.opacity = 0;
+            cursor.style.scale = 1;
+        })
+
+        document.querySelector("#overlay2").addEventListener("mousemove", function(dets) {
+            document.querySelector("#elem2 img").style.scale = 1;
+            document.querySelector("#elem2 img").style.opacity = 1;
+            cursor.style.scale = 0;
+            document.querySelector("#elem2 img").style.left = (dets.x - 700) + "px";
+            document.querySelector("#elem2 img").style.top = (dets.y - 300) + "px";
+        })
+
+        document.querySelector("#overlay2").addEventListener("mouseleave", function(dets) {
+            document.querySelector("#elem2 img").style.scale = 0;
+            document.querySelector("#elem2 img").style.opacity = 0;
+            cursor.style.scale = 1;
+        })
+
+        document.querySelector("#overlay3").addEventListener("mousemove", function(dets) {
+            document.querySelector("#elem3 img").style.scale = 1;
+            document.querySelector("#elem3 img").style.opacity = 1;
+            cursor.style.scale = 0;
+            document.querySelector("#elem3 img").style.left = (dets.x - 1200) + "px";
+            document.querySelector("#elem3 img").style.top = (dets.y - 300) + "px";
+        })
+
+        document.querySelector("#overlay3").addEventListener("mouseleave", function(dets) {
+            document.querySelector("#elem3 img").style.scale = 0;
+            document.querySelector("#elem3 img").style.opacity = 0;
+            cursor.style.scale = 1;
+        })
+    </script>
+</body>
+</html>
