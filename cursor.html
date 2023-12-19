@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Cursor</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+
+      #main {
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        background-color: #121212;
+        color: #fff0f5;
+        display: grid;
+        place-items: center;
+        /* cursor: none; */
+        overflow: hidden;
+      }
+
+      #main h1 {
+        font-size: 5rem;
+        font-weight: 900;
+      }
+
+      .cursor {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        transform: translate(-50%, -50%);
+        background-color: #fff0f5;
+        border-radius: 50%;
+        transition: transform ease-in-out 0.3s, top 0.2s linear, left 0.2s linear;
+        mix-blend-mode: difference;
+      }
+
+      @media screen and (max-width: 768px) {
+        #main h1 {
+          font-size: 10vw;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div class="cursor"></div>
+      <h1 id="h1scale">ABHAY SHARMA</h1>
+    </div>
+
+    <script>
+      const main = document.querySelector("#main");
+      const cursor = document.querySelector(".cursor");
+      const h1 = document.querySelector("#h1scale");
+
+      main.addEventListener("mousemove", function (value) {
+        cursor.style.left = value.x + "px";
+        cursor.style.top = value.y + "px";
+      });
+
+      h1.addEventListener("mousemove", function () {
+        cursor.style.transform = "scale(8)";
+      });
+
+      h1.addEventListener("mouseleave", function () {
+        cursor.style.transform = "scale(1)";
+      });
+    </script>
+  </body>
+</html>
