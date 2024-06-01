@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    background: rgb(41, 41, 41);
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.react {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background-color: gray;
+}
+
+#color {
+    animation-name: colorAnim;
+    animation-duration: 3s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes colorAnim {
+    0% {
+        background-color: gray;
+    }
+
+    25% {
+        background-color: black;
+    }
+
+    50% {
+        background-color: crimson;
+    }
+
+    100% {
+        background-color: cornflowerblue;
+    }
+}
+
+#gradient {
+    background: linear-gradient(
+        45deg,
+        #ff7e5f,
+        #feb47b,
+        #ffca8a,
+        #f4e87c,
+        #a5eb8d,
+        #57e3a1,
+        #47cad1,
+        #7098da,
+        #a47fd0
+    );
+    background-size: 200% 200%;
+    animation: gradientAnim 3s infinite;
+}
+
+@keyframes gradientAnim {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#shake {
+    background-color: #fff174;
+    animation: shakeAnim 0.3s infinite ease;
+}
+
+@keyframes shakeAnim {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(2deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-2deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+#movement {
+    background-color: #ff7e5f;
+    animation: movementAnim 3s infinite linear alternate;
+}
+
+@keyframes movementAnim {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    10% {
+        transform: translate(25px, 0);
+    }
+
+    20% {
+        transform: translate(45px, 25px);
+    }
+
+    30% {
+        transform: translate(25px, 45px);
+    }
+
+    40% {
+        transform: translate(0px, 45px);
+    }
+
+    50% {
+        transform: translate(-25px, 45px);
+    }
+
+    60% {
+        transform: translate(-45px, 25px);
+    }
+
+    70% {
+        transform: translate(-45px, 0px);
+    }
+
+    80% {
+        transform: translate(-45px, -25px);
+    }
+
+    90% {
+        transform: translate(-25px, -45px);
+    }
+
+    100% {
+        transform: translate(0px, -50px);
+    }
+}
+
+#pulse {
+    background-color: #feb47b;
+    animation: pulseAnim 1s infinite ease-in-out;
+}
+
+@keyframes pulseAnim {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+#shape {
+    background-color: #47cad1;
+    animation: shapeAnim 3s linear forwards;
+}
+
+@keyframes shapeAnim {
+    0% {
+        border-radius: 0;
+    }
+
+    16% {
+        border-radius: 50% 0 0 0;
+    }
+
+    32% {
+        border-radius: 50% 50% 0 0;
+    }
+
+    48% {
+        border-radius: 50% 50% 50% 0;
+    }
+
+    64% {
+        border-radius: 50%;
+    }
+
+    80% {
+        border-radius: 0;
+    }
+
+    100% {
+        border-radius: 50%;
+    }
+}
