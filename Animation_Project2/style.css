@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    background: linear-gradient(132deg, #92fc41, #1b84c5, #353521);
+    background-size: 400% 400%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: gradientAnim 10s ease infinite;
+}
+
+.cube {
+    position: absolute;
+    top: 100%;
+    left: 45%;
+    width: 10px;
+    height: 10px;
+    border: solid 1px #d7d4e4;
+    transform: scale(0) rotate(0deg);
+    animation: cubeAnim 8s ease-in infinite;
+}
+
+.cube:nth-child(2) {
+    animation-delay: 1s;
+    left: 25%;
+    top: 40%;
+}
+
+.cube:nth-child(3) {
+    animation-delay: 3s;
+    left: 80%;
+    top: 50%;
+}
+
+.cube:nth-child(4) {
+    animation-delay: 5s;
+    left: 90%;
+    top: 10%;
+}
+
+.cube:nth-child(5) {
+    animation-delay: 7s;
+    left: 10%;
+    top: 50%;
+}
+
+@keyframes gradientAnim {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes cubeAnim {
+    from {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(20) rotate(960deg);
+        opacity: 0;
+    }
+}
+
+.container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    animation: popInAnim 1s ease;
+}
+
+.content {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.5);
+    padding: 2.5rem;
+    text-align: center;
+    max-width: 32rem;
+    font-family: "Helvetica";
+    transition: all ease-in 0.3s;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    line-height: 1.1;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+button {
+    font-weight: bold;
+    font-size: 15px;
+    width: 150px;
+    height: 40px;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+}
+
+button:hover {
+    color: #fbbf24;
+    background-color: black;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+@keyframes popInAnim {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        width: 90%;
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+}
